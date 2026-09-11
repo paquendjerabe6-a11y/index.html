@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Djerabe Pâques Richard — Auteur</title>
+<meta name="description" content="Site officiel de Djerabe Pâques Richard, auteur de « Tchad : des origines de l'humanité à nos jours »." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #15120d;
+    --bg-raised: #1d1810;
+    --bg-raised-2: #241d13;
+    --ink: #f3ecdd;
+    --ink-soft: #c7bda3;
+    --ink-faint: #8f8570;
+    --gold: #cf9f4f;
+    --gold-soft: #a67f3f;
+    --red: #a8382c;
+    --blue: #3c5a7e;
+    --line: rgba(243,236,221,0.12);
+    --line-strong: rgba(243,236,221,0.22);
+    --maxw: 760px;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Public Sans', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,.serif{ font-family: 'Fraunces', Georgia, serif; font-weight: 600; margin: 0; }
+  p{ margin: 0 0 1rem; color: var(--ink-soft); }
+  a{ color: var(--gold); }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .wrap-wide{ max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  nav{
+    position: sticky; top:0; z-index: 20;
+    background: rgba(21,18,13,0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap-wide{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 64px;
+  }
+  .nav-name{ font-family:'Fraunces', serif; font-size: 16px; font-weight: 600; letter-spacing: 0.02em; color: var(--ink); text-decoration:none; }
+  .nav-links{ display:flex; gap: 28px; list-style:none; margin:0; padding:0; }
+  .nav-links a{ color: var(--ink-soft); text-decoration:none; font-size: 14px; }
+  .nav-links a:hover{ color: var(--gold); }
+  .nav-toggle{ display:none; background:none; border:none; color: var(--ink); font-size: 24px; cursor:pointer; }
+
+  /* hero */
+  .hero{
+    position: relative;
+    padding: 108px 24px 96px;
+    overflow: hidden;
+    text-align:center;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(243,236,221,0.035) 39px);
+    pointer-events:none;
+  }
+  .hero-flag{
+    display:flex; width: 64px; height: 10px; margin: 0 auto 32px; border-radius: 2px; overflow:hidden;
+  }
+  .hero-flag span{ flex:1; }
+  .hero-flag span:nth-child(1){ background: var(--blue); }
+  .hero-flag span:nth-child(2){ background: var(--gold); }
+  .hero-flag span:nth-child(3){ background: var(--red); }
+  .hero h1{
+    font-size: clamp(48px, 11vw, 92px);
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    position:relative;
+  }
+  .hero .subtitle{
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 3vw, 24px);
+    color: var(--ink-soft);
+    margin: 18px auto 8px;
+    max-width: 520px;
+  }
+  .hero .byline{
+    font-size: 14px;
+    color: var(--ink-faint);
+    margin-bottom: 40px;
+  }
+  .hero .byline strong{ color: var(--ink-soft); font-weight: 500; }
+  .btn{
+    display:inline-block;
+    padding: 13px 28px;
+    border-radius: 3px;
+    text-decoration:none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary{ background: var(--gold); color: #1c1509; }
+  .btn-primary:hover{ background: #dcae5c; transform: translateY(-1px); }
+  .btn-ghost{ border: 1px solid var(--line-strong); color: var(--ink); margin-left: 12px; }
+  .btn-ghost:hover{ border-color: var(--gold); color: var(--gold); }
+
+  section{ padding: 88px 24px; border-top: 1px solid var(--line); }
+  .eyebrow{
+    font-size: 13px;
+    color: var(--gold-soft);
+    margin-bottom: 10px;
+  }
+  .section-head h2{ font-size: clamp(28px, 4vw, 36px); margin-bottom: 20px; }
+
+  /* about */
+  .about-grid{
+    display:grid; grid-template-columns: 120px 1fr; gap: 40px; align-items:start;
+  }
+  .portrait{
+    width: 120px; height: 120px; border-radius: 50%;
+    background: var(--bg-raised-2);
+    border: 1px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-size: 34px; color: var(--gold);
+  }
+  .about-body p{ font-size: 16.5px; }
+  .about-meta{ display:flex; gap: 28px; margin-top: 24px; flex-wrap:wrap; }
+  .about-meta div{ font-size: 13px; color: var(--ink-faint); }
+  .about-meta strong{ display:block; color: var(--ink); font-size: 15px; font-weight:500; margin-bottom:2px; }
+
+  /* books */
+  .book-card{
+    display:grid; grid-template-columns: 200px 1fr; gap: 40px;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 32px;
+  }
+  .cover{
+    width:100%; aspect-ratio: 3/4.3;
+    background: linear-gradient(180deg, var(--bg-raised-2), #171209);
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding: 16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover .stripes{ display:flex; height:5px; border-radius:1px; overflow:hidden; }
+  .cover .stripes span{ flex:1; }
+  .cover .stripes span:nth-child(1){ background: var(--blue); }
+  .cover .stripes span:nth-child(2){ background: var(--gold); }
+  .cover .stripes span:nth-child(3){ background: var(--red); }
+  .cover .cover-title{
+    font-family:'Fraunces', serif; font-weight:700; font-size: 28px; color: var(--ink); line-height:1.05;
+  }
+  .cover .cover-sub{ font-size: 11px; color: var(--ink-faint); line-height:1.4; }
+  .book-tags{ display:flex; gap: 8px; flex-wrap:wrap; margin: 16px 0 20px; }
+  .tag{
+    font-size: 12px; color: var(--ink-soft);
+    border: 1px solid var(--line-strong);
+    border-radius: 20px; padding: 4px 12px;
+  }
+  .book-title{ font-size: 24px; margin-bottom: 6px; }
+  .book-authorline{ font-size: 13px; color: var(--ink-faint); margin-bottom: 18px; }
+  .book-actions{ margin-top: 8px; }
+
+  .add-book-note{
+    margin-top: 28px;
+    font-size: 13.5px;
+    color: var(--ink-faint);
+    border-left: 2px solid var(--line-strong);
+    padding-left: 16px;
+  }
+
+  /* contact */
+  .contact-box{
+    text-align:center;
+  }
+  .contact-box .btn-primary{ margin-top: 8px; }
+
+  footer{
+    padding: 40px 24px;
+    text-align:center;
+    font-size: 13px;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 640px){
+    .nav-links{
+      position:absolute; top:64px; left:0; right:0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      flex-direction:column; padding: 16px 24px; gap: 18px;
+      display:none;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-toggle{ display:block; }
+    .about-grid{ grid-template-columns: 1fr; text-align:left; }
+    .portrait{ margin-bottom: 8px; }
+    .book-card{ grid-template-columns: 1fr; }
+    .cover{ max-width: 220px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap-wide">
+    <a href="#top" class="nav-name">Djerabe Pâques Richard</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#livres">Mes livres</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">☰</button>
+  </div>
+</nav>
+
+<div id="top" class="hero">
+  <div class="hero-flag"><span></span><span></span><span></span></div>
+  <h1 class="serif">TCHAD</h1>
+  <p class="subtitle">Des origines de l'humanité à nos jours</p>
+  <p class="byline">Un livre de <strong>Djerabe Pâques Richard</strong></p>
+  <a href="#livres" class="btn btn-primary">Découvrir le livre</a>
+  <a href="#contact" class="btn btn-ghost">Me contacter</a>
+</div>
+
+<section id="apropos">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="portrait">DR</div>
+      <div class="about-body">
+        <div class="eyebrow">À propos de l'auteur</div>
+        <h2 class="serif" style="font-size:26px; margin-bottom:14px;">Djerabe Pâques Richard</h2>
+        <p>Né le 25 mars 2000 à N'Djamena, au Tchad, je suis passionné depuis toujours par l'histoire et l'identité de mon pays. Après plusieurs mois de recherche et d'écriture, j'ai voulu raconter le Tchad dans toute sa profondeur : des origines de l'humanité, avec la découverte de Toumaï, jusqu'aux défis et enjeux du Tchad d'aujourd'hui.</p>
+        <p>À travers mes écrits, je souhaite transmettre à mes compatriotes, à la diaspora tchadienne et à tous les curieux d'Afrique une meilleure connaissance de l'histoire, des peuples et de la culture de ce grand pays du Sahel.</p>
+        <div class="about-meta">
+          <div><strong>N'Djamena</strong>Ville natale</div>
+          <div><strong>Français, Arabe</strong>Langues d'écriture</div>
+          <div><strong>Histoire & documentaire</strong>Genre de prédilection</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="livres">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bibliographie</div>
+      <h2 class="serif">Mes livres</h2>
+    </div>
+
+    <div class="book-card">
+      <div class="cover">
+        <div class="stripes"><span></span><span></span><span></span></div>
+        <div class="cover-title">TCHAD</div>
+        <div class="cover-sub">Des origines de l'humanité à nos jours<br>Djerabe Pâques Richard</div>
+      </div>
+      <div>
+        <div class="book-title serif">Tchad : des origines de l'humanité à nos jours</div>
+        <div class="book-authorline">Essai historique — 2026</div>
+        <p>De Toumaï, l'un des plus anciens ancêtres connus de l'humanité, aux grands empires du Kanem-Bornou, du Baguirmi et du Ouaddaï, en passant par la colonisation, l'indépendance et les grandes figures politiques, ce livre retrace l'histoire complète du Tchad jusqu'à son actualité la plus récente.</p>
+        <div class="book-tags">
+          <span class="tag">Histoire africaine</span>
+          <span class="tag">Sahel</span>
+          <span class="tag">Tchad</span>
+        </div>
+        <div class="book-actions">
+          <a href="#contact" class="btn btn-primary">Demander un exemplaire</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="add-book-note">D'autres ouvrages seront ajoutés ici au fil de mes prochaines publications.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-box">
+    <div class="eyebrow">Contact</div>
+    <h2 class="serif" style="margin-bottom:14px;">Échangeons sur mes livres</h2>
+    <p>Une remarque, une question, une envie de collaboration ? Écrivez-moi directement.</p>
+    <a href="mailto:paquendjerabe6@gmail.com" class="btn btn-primary">paquendjerabe6@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Djerabe Pâques Richard — N'Djamena, Tchad
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
